@@ -1,27 +1,55 @@
-// Source code is decompiled from a .class file using FernFlower decompiler.
 import java.util.Scanner;
 
 public class Grade {
-   public Grade() {
-   }
+    public static void main(String [] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Your Name : ");
+            String userName= sc.nextLine();
+            if(userName.isEmpty()){
+                System.out.println("Invalid Name");
+            }
+            else{
+            System.out.println("Number of Subject : ");
+            int numberOfSubject=sc.nextInt();
+             int  total = 0;
+            if(numberOfSubject>0)
+            {
+            for(int i=1; i<=numberOfSubject; i++){
+                 System.out.println("Enter you Subject Marks : " + i);
+                 int mark = sc.nextInt();
+                 total += mark;
+            }
+         Double totalPercetage =(double) (total /( numberOfSubject*100.0)) * 100; 
+         String grade;
+         if(totalPercetage > 90){
+            grade ="A";
+         }
+         else if (totalPercetage > 80){
+            grade ="B";
+         }
+         else if(totalPercetage > 70){
+            grade ="C";
+         }
+         else if(totalPercetage > 60){
+            grade ="D";
+         }
+          else if(totalPercetage > 50){
+            grade ="P";
+         }
+          else {
+            grade ="F";
+         }
+         //all details print 
+         System.out.println("Name : " + userName );
+         System.out.println("Total Marks : " + total );
+         System.out.println("Percetage: " + totalPercetage+"%" );
+         System.out.println("grade: " + grade );
+        }
+         else{
+                System.out.println("Invalid try again!");
+            }
+        }
+        sc.close();
+    }
 
-   public static void main(String[] var0) {
-      Scanner var1 = new Scanner(System.in);
-      System.out.println("Your Name : ");
-      String var2 = var1.nextLine();
-      System.out.println("Number of Subject : ");
-      int var3 = var1.nextInt();
-      int var4 = 0;
-
-      int var5;
-      for(var5 = 1; var5 <= var3; ++var5) {
-         System.out.println("Enter you Subject Marks : " + var5);
-         int var6 = var1.nextInt();
-         var4 += var6;
-      }
-
-      System.out.println(var4);
-      var5 = var4 / var3;
-      System.out.println(var5);
-   }
 }
